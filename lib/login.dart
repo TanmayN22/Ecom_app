@@ -1,3 +1,4 @@
+import 'package:ecom_app/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,9 +24,9 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 Image.asset('assets/diamond.png'),
                 const SizedBox(height: 16.0),
-                const Text(
+                Text(
                   'SHRINE',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),
@@ -35,7 +36,6 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
-                filled: true,
                 labelText: 'Username',
               ),
             ),
@@ -45,7 +45,6 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(
-                filled: true,
                 labelText: 'Password',
               ),
               obscureText: true,
@@ -59,12 +58,24 @@ class _LoginPageState extends State<LoginPage> {
                     _usernameController.clear();
                     _passwordController.clear();
                   },
+                  style: TextButton.styleFrom(
+                      foregroundColor: kShrineBrown900,
+                      shape: const BeveledRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(7.0)))),
                 ),
                 ElevatedButton(
                   child: const Text("NEXT"),
                   onPressed: () {
                     Navigator.pop(context);
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: kShrinePink100,
+                    foregroundColor: kShrineBrown900,
+                    shape: const BeveledRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7.0))),
+                    elevation: 8.0,
+                  ),
                 ),
               ],
               //If we passed null, the buttons would become disabled.
